@@ -1,24 +1,34 @@
-# README
+# Location
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+訪れたロケ地を投稿、閲覧、共有できるサイトです。
 
-Things you may want to cover:
+### サイトテーマ
+web上でロケ地巡り
 
-* Ruby version
+### テーマを選んだ理由
+自分自身ロケ地巡りが好きで、ロケ地が見やすくまとめられたサイトがあればいいなと思ったからです。
 
-* System dependencies
+### ターゲットユーザ
+映画・ドラマ・アニメ・漫画等が好きな人、旅行や外に出ることが好きな人
 
-* Configuration
+### 主な利用シーン
+①自分が知っているロケ地の実際の写真が見たいとき
+②自分が知っている場所がロケ地に使われている作品を知りたいとき
 
-* Database creation
+## 設計書
+<...>
 
-* Database initialization
+## チャレンジ要素一覧
+<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
 
-* How to run the test suite
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
