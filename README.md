@@ -23,7 +23,9 @@
 - 自分が知っている場所をロケ地に使っている作品を知りたいとき
 
 ## 設計書
-<...>
+[ER図](https://app.diagrams.net/#G1vgh5Z8QphTveBhiuoIfd8OECkBQ4D89e)  
+[テーブル定義書](https://docs.google.com/spreadsheets/d/1RwYNIPAZxNwp8VXF7pntxypZjhUIZ2lB3PzBegCGgvQ/edit#gid=1654934740)  
+[アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1bE9abW_1yy2yUxrXRqD8ZdYGOGqYsdVyg8wi-2wNHiQ/edit#gid=2133469642)
 
 ## チャレンジ要素一覧
 [チャレンジ要素一覧](<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>)
