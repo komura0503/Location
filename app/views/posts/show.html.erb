@@ -1,0 +1,9 @@
+<h1>投稿詳細</h1>
+<%= attachment_image_tag @post, :image, :fill, 200, 200 %>
+<%= @post.title %>
+<%= @post.caption %>
+<%= @post.url %>
+<%= @post.user.name %>
+<% if @post.user == current_user %>
+  <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<% end %>
