@@ -1,0 +1,10 @@
+<h1>投稿一覧</h1>
+<% @posts.each do |post| %>
+ <%= link_to post_path(post.id) do %>
+  <%= attachment_image_tag post, :image, :fill, 100, 100 %>
+  <%= post.title %>
+ <% end %>
+  <%= post.caption %>
+  <%= post.url %>
+  <%= post.user.name %>
+<% end %>
