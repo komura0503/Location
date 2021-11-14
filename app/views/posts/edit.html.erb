@@ -1,2 +1,9 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h1>投稿編集ページ</h1>
+<%= form_with model:@post,local:true do |f| %>
+  <%= attachment_image_tag @post, :image, :fill, 200, 200 %>
+  <%= f.attachment_field :image %>
+  <%= f.text_field :title %>
+  <%= f.text_field :caption %>
+  <%= f.text_field :url %>
+  <%= f.submit "変更" %>
+<% end %>
