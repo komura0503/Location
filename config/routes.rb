@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get "about" => 'homes#about'
   resources:users, only: [:show, :edit, :update]
   resources:posts
+  resources :maps, only: [:new, :create, :index]
 end
