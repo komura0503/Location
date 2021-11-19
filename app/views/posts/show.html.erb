@@ -3,7 +3,10 @@
 <%= @post.title %>
 <%= @post.caption %>
 <%= @post.url %>
-<%= @post.user.name %>
+<%= link_to @post.user.name, user_path(@post.user.id) %>
+<p class=<%="favorite-btn" + @post.id.to_s %>>
+  <%= render 'favorites/favorite-btn', post:@post %>
+</p>
 
 <script type="text/javascript">
      function initMap() {
