@@ -7,6 +7,10 @@ class Post < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+  
+  def self.search(keyword)
+    where(["title likes? OR body likes?", "%#{keyword}%", "%#{keyword}%"])
+  end
 
   attachment :image
   geocoded_by :address

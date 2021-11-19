@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resource:favorites, only: [:create, :destroy]
   end
   resources :maps, only: [:new, :create, :index]
+  resources :searches, only: [:index]
+  get 'search' => 'searches#search'
 end
