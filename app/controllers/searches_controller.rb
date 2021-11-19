@@ -1,11 +1,8 @@
 class SearchesController < ApplicationController
-  def index
-    
-  end
-  
+
   def search
-    @posts = Post.search(params[:keyword])
-    @keyword = params[:keyword]
-    render "index"
+    @posts = Post.search(params[:search])
+    @post_pages = Post.page(params[:page]).reverse_order
   end
+
 end
