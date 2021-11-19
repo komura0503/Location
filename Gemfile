@@ -70,3 +70,6 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem "geocoder"
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
