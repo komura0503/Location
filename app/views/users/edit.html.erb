@@ -1,0 +1,8 @@
+<h1>会員情報編集ページ</h1>
+<%= form_with model:@user, local:true do |f| %>
+  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+  <%= f.text_field :name, placeholder:"ニックネーム" %>
+  <%= f.text_area :introduction, placeholder:"自己紹介" %>
+  <%= f.submit "変更" %>
+<% end %>

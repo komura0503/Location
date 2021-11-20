@@ -1,0 +1,9 @@
+<h1>新規投稿</h1>
+<%= form_with model: @post,local:true do |f| %>
+  <%= f.attachment_field :image %>
+  タイトル<%= f.text_field :title %>
+  説明<%= f.text_area :caption %>
+  作品URL<%= f.text_field :url %>
+  住所<%= f.text_field :address, placeholder: "住所" %>
+  <%= f.submit '投稿' %>
+<% end %>
