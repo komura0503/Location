@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row offset-4">
+    <h2>投稿一覧</h2>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-9 offset-1">
+      <div class="card-deck">
+        <% @posts.each do |post| %>
+          <div class="col-4 mt-5">
+            <div class="card">
+             <%= link_to post_path(post.id) do %>
+              <div class="card-img-top">
+                <%= attachment_image_tag post, :image, :fill, 178, 120 %>
+              </div>
+              <div class="card-body">
+               <h5 class="card-title"><%= post.title %></h5><% end %>
+               <p class="card-text"><%= link_to post.user.name, user_path(post.user.id) %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="offset-6 mt-5">
+      <%= paginate @posts %>
+    </div>
+  </div>
+</div>
