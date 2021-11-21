@@ -12,6 +12,7 @@
   <body>
     <%= render 'layouts/header', user:@user %>
     <main>
+      <%= breadcrumbs separator: " &rsaquo; " %>
       <%= yield %>
     </main>
     <%= render 'layouts/footer' %>
