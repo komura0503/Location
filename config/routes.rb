@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   end
   resources :maps, only: [:new, :create, :index]
   get 'search' => 'searches#search'
+  resources:tags do
+    get 'posts' => 'posts#search'
+  end
 end
