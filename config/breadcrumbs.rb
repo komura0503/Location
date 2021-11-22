@@ -12,6 +12,16 @@ crumb :sign_in do
   parent :root
 end
 
+crumb :user_show do |user|
+  link "#{user.name}さんの詳細", user_path(user)
+  parent :root
+end
+
+crumb :post_show do |post|
+  link "#{post.title}の投稿詳細", post_path(post)
+  parent :root
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
