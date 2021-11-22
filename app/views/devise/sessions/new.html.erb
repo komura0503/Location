@@ -5,28 +5,28 @@
       <h4>ログイン</h4>
     </div>
     
-    <div class="form-group mt-3">
-      <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+    <div class="form-group log mt-3">
         <div class="field">
           <%= f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: 'form-control' %>
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group log">
         <div class="field">
           <%= f.password_field :password, placeholder: "パスワード", autocomplete: "current-password", class: 'form-control' %>
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group log">
       <div class="actions">
         <%= f.submit "ログイン", class: "btn btn-primary btn-block" %>
       </div>
     </div>
       <% end %>
       
-    <div class="form-group border-top"></div>
-    <div class="form-group">
+    <div class="form-group log border-top"></div>
+    <div class="form-group log">
       <p>アカウントをお持ちでない場合はこちらから</p>
       <%= link_to '新規会員登録', new_user_registration_path %>
     </div>

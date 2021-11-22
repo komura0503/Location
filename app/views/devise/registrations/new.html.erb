@@ -4,53 +4,52 @@
     <div class="">
       <h4>新規会員登録</h4>
     </div>
+  </div>
 
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="form-group mt-3">
-        <div class="field">
-          <%= f.label :name %><br />
-          <%= f.text_field :name, placeholder: "ニックネーム", autofocus: true %>
-        </div>
-    </div>
-
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email" %>
+    <div class="form-group row mt-3">
+      <%= f.label :"ニックネーム", class: 'col-3 offset-1 col-form-label' %>
+      <div class="col-4">
+        <%= f.text_field :name, autofocus: true, class: 'form-control' %>
       </div>
     </div>
 
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, placeholder: "パスワード", autocomplete: "new-password" %>
+    <div class="form-group row">
+        <%= f.label :"メールアドレス", class: 'col-3 offset-1 col-form-label' %>
+      <div class="col-6">
+        <%= f.email_field :email, autofocus: true, placeholder: "例：location@location.jp", autocomplete: "email", class: 'form-control' %>
       </div>
     </div>
 
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, placeholder: "パスワード", autocomplete: "new-password" %>
+    <div class="form-group row">
+      <%= f.label :"パスワード (6文字以上)", class: 'col-3 offset-1 col-form-label' %>
+      <div class="col-4">
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
       </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group row">
+        <%= f.label :password_confirmation, class: 'col-3 offset-1 col-form-label' %><br />
+      <div class="col-4">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group log">
       <div class="actions">
-        <%= f.submit "新規会員登録" %>
+        <%= f.submit "新規会員登録", class: "btn btn-primary btn-block" %>
       </div>
     </div>
     <% end %>
-      
+
+  <div class="d-flex flex-column text-center">
     <div class="form-group border-top"></div>
     <div class="form-group">
       <p>アカウントをお持ちの場合はこちらから</p>
       <%= link_to 'ログイン', new_user_session_path %>
     </div>
+  </div>
 
 <!--<%= render "devise/shared/links" %>-->
-  </div>
 </div>
