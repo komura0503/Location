@@ -23,7 +23,13 @@
  }
 
  a {
-   text-decoration: none;
+  text-decoration: none;
+  color: #333333;
+ }
+
+ a:hover {
+  text-decoration: underline;
+  color: #333333;
  }
 
  .navbar-brand {
@@ -32,6 +38,11 @@
 
  .nav-item {
   font-size: 80%;
+  margin: auto;
+ }
+
+ .dropdown-item {
+
  }
 
  .bread {
@@ -56,6 +67,10 @@
 
  ::placeholder {
   font-size: 80%;
+ }
+
+ .card {
+  width: 80%;
  }
 
  footer {

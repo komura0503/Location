@@ -4,9 +4,7 @@
   </div>
   <div class="row">
     <div class="col-2">
-      <%= @tag_list.each do |list| %>
-        <%= link_to list.tag_name, tag_posts_path(list.id) %>
-      <% end %>
+      <%= render 'tag', tag_list:@tag_list %>
     </div>
     <div class="col-9 offset-1">
       <div class="card-deck">
@@ -19,6 +17,9 @@
               </div>
               <div class="card-body">
                <h5 class="card-title"><%= post.title %></h5><% end %>
+               <div class=<%="favorite-btn" + post.id.to_s %>>
+                 <%= render 'favorites/favorite-btn', post:post %>
+               </div>
                <p class="card-text"><%= link_to post.user.name, user_path(post.user.id) %></p>
               </div>
             </div>

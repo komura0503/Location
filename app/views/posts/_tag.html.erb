@@ -1,0 +1,3 @@
+<% tag_list.each do |list| %>
+  <%= link_to list.tag_name, tag_posts_path(list.id) %>
+<% end %>
