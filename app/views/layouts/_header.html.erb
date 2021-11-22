@@ -5,15 +5,15 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="#navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <%= render 'searches/form' %>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-          <%= render 'searches/form' %>
           <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to '　新規投稿', new_post_path %>
+            <li class="nav-item mr-3">
+              <%= link_to '新規投稿', new_post_path %>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">　マイメニュー</a>
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">マイメニュー</a>
               <div class="dropdown-menu">
                 <a class="dropdown-item">
                   <%= link_to user_path(current_user.id) do %>
@@ -21,15 +21,15 @@
                     <%= current_user.name %>
                   <% end %>
                 </a>
-                <a class="dropdown-item"><%= link_to "　ログアウト", destroy_user_session_path, method: :delete %></a>
+                <a class="dropdown-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
               </div>
             </li>
           <% else %>
-            <li class="nav-item">
-              <%= link_to "　新規登録", new_user_registration_path %>
+            <li class="nav-item mr-3">
+              <%= link_to "新規登録", new_user_registration_path %>
             </li>
-            <li class="nav-item">
-              <%= link_to "　ログイン", new_user_session_path %>
+            <li class="nav-item mr-3">
+              <%= link_to "ログイン", new_user_session_path %>
             </li>
           <% end %>
         </ul>
