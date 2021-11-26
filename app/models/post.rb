@@ -5,10 +5,12 @@ class Post < ApplicationRecord
   has_many :tags, through: :tag_maps
   has_many :favorites, dependent: :destroy
 
+  # いいね機能
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
 
+  # キーワード検索機能
   def self.search(search)
     if search
       Post.where(["title LIKE ?", "%#{search}%"])
@@ -17,6 +19,7 @@ class Post < ApplicationRecord
     end
   end
 
+  # タグ検索機能
   def save_tag(sent_tags)
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
     old_tags = current_tags - sent_tags
@@ -35,4 +38,9 @@ class Post < ApplicationRecord
   attachment :image
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+  validates :title, presence: true
+  validates :image, presence: true
+  validates :url, presence: true
+  validates :address, presence: true
 end
