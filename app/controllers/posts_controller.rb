@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :ensure_correct_post, only: [:edit, :update, :destroy]
+
   def new
     @post = Post.new
   end
@@ -11,7 +13,7 @@ class PostsController < ApplicationController
       @post.save_tag(tag_list)
       redirect_to post_path(@post)
     else
-      redirect_to post_path(@post)
+      render :new
       # redirect_back(fallback_location: root_path)
     end
   end
@@ -32,8 +34,11 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to post_path(@post.id)
+    if @post.update(post_params)
+      redirect_to post_path(@post.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -53,5 +58,12 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :image, :caption, :url, :address, :latitude, :longitude)
+  end
+
+  def ensure_correct_post
+    @post = Post.find(params[:id])
+    unless @post.user == current_user
+      redirect_to posts_path
+    end
   end
 end

@@ -1,4 +1,5 @@
 <h1>投稿編集ページ</h1>
+<%= render 'layouts/errors', obj: @post %>
 <%= form_with model:@post,local:true do |f| %>
   <%= attachment_image_tag @post, :image, :fill, 200, 200 %>
   <%= f.attachment_field :image %>
