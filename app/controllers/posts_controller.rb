@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @tag_list = Tag.all
   end
 
   def create
@@ -14,7 +15,6 @@ class PostsController < ApplicationController
       redirect_to post_path(@post)
     else
       render :new
-      # redirect_back(fallback_location: root_path)
     end
   end
 
@@ -31,6 +31,8 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @tag_list = Tag.all
+    @tags = @post.tags.pluck(:tag_name).join(' ')
   end
 
   def update

@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      post:
+        title: タイトル
+        image: 画像
+        url: URL
+        address: 住所
+      user:
+        name: ニックネーム

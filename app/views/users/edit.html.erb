@@ -1,9 +1,25 @@
-<h1>会員情報編集ページ</h1>
-<%= render 'layouts/errors', obj: @user %>
-<%= form_with model:@user, local:true do |f| %>
-  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
-  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-  <%= f.text_field :name, placeholder:"ニックネーム" %>
-  <%= f.text_area :introduction, placeholder:"自己紹介" %>
-  <%= f.submit "変更" %>
-<% end %>
+<div class="container">
+  <% breadcrumb :user_edit, @user %>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= render 'layouts/errors', obj: @user %>
+      <%= form_with model:@user, local:true do |f| %>
+        <div class="form-group mt-3">
+          <%= attachment_image_tag @user, :profile_image, :fill, 200, 200 %>
+          <%= f.attachment_field :profile_image %>
+        </div>
+        <div class="form-group mt-3">
+          ニックネーム
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="form-group mt-3">
+          自己紹介
+          <%= f.text_area :introduction, class: 'form-control' %>
+        </div>
+        <div class="form-group mt-3 text-center">
+          <%= f.submit '保存', class: "btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

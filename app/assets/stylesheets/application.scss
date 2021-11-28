@@ -16,10 +16,12 @@
  @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Shippori+Mincho&display=swap');
 
  * {
    margin: 0;
    padding: 0;
+   font-family: 'Noto Sans JP', sans-serif;
  }
 
  a {
@@ -43,6 +45,27 @@
 
  .dropdown-item {
 
+ }
+
+ .search {
+
+ }
+
+ .search-btn {
+  height:50px;
+  position:absolute;
+  left:320px;/*アイコン左右の位置調整*/
+  top:0;
+  margin-top: 4px;
+  background:none;
+  color: #696969;
+  border:none;
+  font-size: 80%;/*アイコンサイズ*/
+ }
+
+ #error_explanation {
+  font-size: 80%;
+  color: red;
  }
 
  .bread {
@@ -83,6 +106,57 @@
 
 .edit {
  text-decoration: underline;
+}
+
+.tag {
+ display: inline-block;
+ margin-top: 5px;
+ padding: 10px;
+ border: 1px solid #008080;
+ background-color: #fff;
+ border-radius: 100vh;
+ font-size: 80%;
+ color: #008080;
+}
+
+.delete {
+ text-decoration: underline;
+}
+
+.delete:hover {
+ color: red;
+}
+
+.btn {
+ width: 50%;
+ background-color: #008080;
+ color: #fff;
+ font-size: 100%;
+}
+
+.btn:hover {
+ background-color: #fff;
+ border: 1px solid #008080;
+ color: #008080;
+}
+
+.favorite-btn {
+
+}
+
+.pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
+.pagination>.active>a {
+  background: #008080 !important;
+  border-radius: 15px;
+}
+
+.pagination>li>a:hover {
+  border-radius: 15px;
+  color: #008080;
 }
 
  footer {

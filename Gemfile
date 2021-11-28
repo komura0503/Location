@@ -77,3 +77,4 @@ group :production do
   gem 'mysql2'
 end
 gem 'gretel'
+gem 'rails-i18n'
