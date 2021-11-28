@@ -1,12 +1,36 @@
 <div class="container">
   <% breadcrumb :user_show, @user %>
-<h1>マイページ</h1>
-<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-<p>ニックネーム：<%= @user.name %></p>
-<p>自己紹介：<%= @user.introduction %></p>
-
-<% if @user.id == current_user.id %>
-  <%= link_to "会員情報編集", edit_user_path(@user) %>
-<% end %>
-
+  <div class="row" style="height: 300px;">
+    <div class="col-sm-5">
+      <div class="text-center">
+        <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg" %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="name"><%= @user.name %></p>
+      <p class="introduction">自己紹介</br>
+        <%= @user.introduction %>
+      </p>
+      <div class="text-right edit">
+        <% if @user.id == current_user.id %>
+          <%= link_to "編集する", edit_user_path(@user) %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <%= render 'posts/tag', tag_list:@tag_list %>
+    </div>
+  </div>
+  <div class="row">
+    <p class="col-sm-9 offset-1"><%= @user.name %>さんの投稿</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-9 d-flex justify-content-center">
+      <% @posts.each do |post| %>
+        <%= link_to post_path(post.id) do %>
+          <span class="mx-3"><%= attachment_image_tag post, :image, :fill, 120, 120 %></span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

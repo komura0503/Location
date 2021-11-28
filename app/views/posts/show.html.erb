@@ -1,15 +1,37 @@
 <div class="container">
   <% breadcrumb :post_show, @post %>
+  <div class="row" style="height: 300px;">
+    <div class="col-sm-5">
+      <div class="text-center">
         <%= attachment_image_tag @post, :image, :fill, 200, 200 %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="name"><%= @post.title %></p>
+      <div class=<%="favorite-btn" + @post.id.to_s %>>
+        <%= render 'favorites/favorite-btn', post:@post %>
+      </div>
+      <%= link_to @post.user.name, user_path(@post.user.id) %>
+      <p><%= @post.caption %></p>
+      <p><%= @post.url %></p>
+    </div>
+    <div class="col-sm-3">
+      <%= render 'posts/tag', tag_list:@tag_list %>
+    </div>
+    <div class="text-right edit">
+      <% if @post.user == current_user %>
+        <%= link_to "編集する", edit_post_path(@post.id) %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <% @post_tags.each do |tag| %>
+      <%= link_to tag.tag_name, tag_posts_path(tag.id) %>
+    <% end %>
+  </div>
 
-          <%= @post.title %>
-          <%= @post.caption %>
-          <%= @post.url %>
-          <%= link_to @post.user.name, user_path(@post.user.id) %>
-          <div class=<%="favorite-btn" + @post.id.to_s %>>
-            <%= render 'favorites/favorite-btn', post:@post %>
-          </div>
-
+  <div class="row">
+    <div class="col-sm-9">
     <script type="text/javascript">
          function initMap() {
            var test = {lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
@@ -37,18 +59,15 @@
                  src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap">
        </script>
        <style type="text/css">
-         #map { height: 200px;
-               width: 200px;}
+         #map { height: 150px;
+               width: 100%;}
        </style>
        <div id="map"></div>
-
-    <% @post_tags.each do |tag| %>
-      <%= link_to tag.tag_name, tag_posts_path(tag.id) %>
+    </div>
+  </div>
+  <div class="row">
+    <% if @post.user == current_user %>
+      <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
     <% end %>
-
-<% if @post.user == current_user %>
-  <%= link_to "編集", edit_post_path(@post.id) %>
-  <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-<% end %>
-
+  </div>
 </div>

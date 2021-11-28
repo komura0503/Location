@@ -1,9 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-2">
-      <%= render 'tag', tag_list:@tag_list %>
-    </div>
-    <div class="col-9 offset-1">
+    <div class="col-9">
       <div class="card-deck">
         <% @posts.each do |post| %>
           <div class="col-4 mt-5">
@@ -14,15 +11,23 @@
               </div>
               <div class="card-body">
                <h5 class="card-title"><%= post.title %></h5><% end %>
-               <div class=<%="favorite-btn" + post.id.to_s %>>
-                 <%= render 'favorites/favorite-btn', post:post %>
-               </div>
+                <% if user_signed_in? %>
+                  <div class=<%="favorite-btn" + post.id.to_s %>>
+                    <%= render 'favorites/favorite-btn', post:post %>
+                  </div>
+                <%else%>
+                  <p> ♡<%= post.favorites.count %> </p>
+                <%end%>
+
                <p class="card-text"><%= link_to post.user.name, user_path(post.user.id) %></p>
               </div>
             </div>
           </div>
         <% end %>
       </div>
+    </div>
+    <div class="col-3">
+      <%= render 'tag', tag_list:@tag_list %>
     </div>
   </div>
   <div class="row">
