@@ -22,6 +22,26 @@ crumb :post_show do |post|
   parent :root
 end
 
+crumb :post_new do
+  link "新規投稿", new_post_path
+  parent :root
+end
+
+crumb :post_edit do |post|
+  link "投稿の編集"
+  parent :post_show, post
+end
+
+crumb :tag_search do |post|
+  link "タグ検索"
+  parent :root
+end
+
+crumb :user_edit do |user|
+  link "会員情報の編集"
+  parent :user_show, user
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
