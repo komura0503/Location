@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @tag_list = Tag.all
+    # そのユーザーの新着3件の投稿
+    @posts = @user.posts.order(created_at: :desc).limit(3)
   end
 
   def edit
