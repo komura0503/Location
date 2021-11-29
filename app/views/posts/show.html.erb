@@ -8,7 +8,12 @@
     </div>
     <div class="col-sm-3">
       <p class="name"><%= @post.title %></p>
-      <p><%= link_to @post.user.name, user_path(@post.user.id) %></p>
+      <p>
+        <%= link_to user_path(@post.user.id) do %>
+          <%= attachment_image_tag @post.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", class: "prf-image" %>
+          <%= @post.user.name %>
+        <% end %>
+      </p>
       <p class="introduction"><%= @post.caption %></p>
       <p><%= @post.url %></p>
       <div class="text-right edit">
@@ -18,9 +23,13 @@
       </div>
     </div>
     <div class="col-sm-1 text-center mt-3">
-      <div class=<%="favorite-btn" + @post.id.to_s %>>
-        <%= render 'favorites/favorite-btn', post:@post %>
-      </div>
+      <% if user_signed_in? %>
+        <div class=<%="favorite-btn" + @post.id.to_s %>>
+          <%= render 'favorites/favorite-btn', post:@post %>
+        </div>
+      <%else%>
+        ♡<%= @post.favorites.count %>
+      <%end%>
     </div>
     <div class="col-sm-3">
       <%= render 'posts/tag', tag_list:@tag_list %>
