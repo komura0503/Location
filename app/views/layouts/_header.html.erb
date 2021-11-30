@@ -9,8 +9,8 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-            <li class="nav-item mr-3">
-              <%= link_to 'ロケ地を投稿', new_post_path %>
+            <li class="nav-item  mx-3">
+              <%= link_to 'ロケ地を投稿', new_post_path, class: "new" %>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">マイメニュー</a>
