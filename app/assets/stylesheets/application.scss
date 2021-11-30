@@ -31,17 +31,21 @@
  }
 
  a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   color: #333333;
  }
 
  .navbar-brand {
   font-size: 130%;
+  font-weight: bold;
  }
 
  .nav-item {
   font-size: 80%;
   margin: auto;
+ }
+
+ .new {
  }
 
  .dropdown-item {
@@ -183,7 +187,11 @@
 }
 
 .favorite-btn {
+ color: #696969;
+}
 
+.favorite-btn:hover {
+ text-decoration: none;
 }
 
 .pagination>li>a {
@@ -201,10 +209,17 @@
   color: #008080;
 }
 
+.wrapper{
+  min-height: 100vh;
+  position: relative;
+}
+
  footer {
   width: 100%;
   text-align: center;
   padding: 30px 0;
   margin-top: auto;
+  bottom: 0;
+  position: absolute;
   bottom: 0;
  }
