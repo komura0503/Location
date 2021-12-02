@@ -47,6 +47,9 @@
 
  .new {
  }
+ 
+ .new:hover {
+ }
 
  .dropdown-item {
 
@@ -119,28 +122,6 @@
 
 .edit {
  text-decoration: underline;
-}
-
-.post-all {
- width: 100%;
- height: 33px;
- padding: 5px;
- border-radius: 20px;
- background-color: #008080;
- text-align: center;
-}
-
-.post-all:hover{
- opacity: 0.5;
-}
-
-.all:hover {
- text-decoration: none;
- color: #fff;
-}
-
-.all {
- color: #fff;
 }
 
 .side {
