@@ -8,7 +8,7 @@
       <% @posts.each do |post| %>
         <div class="d-flex flex-column mx-3">
             <%= link_to post_path(post.id) do %>
-              <%= attachment_image_tag post, :image, :fill, 150, 150 %></br>
+              <%= attachment_image_tag post, :image, :fill, 150, 150 %><br>
               <%= post.title %>
             <% end %>
             <span class="d-flex justify-content-between">
