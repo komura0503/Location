@@ -15,7 +15,7 @@
         <% end %>
       </p>
       <p class="introduction"><%= @post.caption %></p>
-      <p><%= @post.url %></p>
+      <p><a href = "<%= @post.url %>" target = "_blank"><%= @post.url %></a></p>
       <div class="text-right edit">
       <% if @post.user == current_user %>
         <%= link_to "編集する", edit_post_path(@post.id) %>
