@@ -37,7 +37,9 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    tag_list = params[:post][:tag_name].split(nil)
     if @post.update(post_params)
+      @post.save_tag(tag_list)
       redirect_to post_path(@post.id)
     else
       render :edit
@@ -54,7 +56,7 @@ class PostsController < ApplicationController
     @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
     @posts = @tag.posts.all
-    @post_pages = Post.page(params[:page]).reverse_order
+    @post_pages = @posts.page(params[:page]).reverse_order
   end
 
   private
