@@ -3,9 +3,9 @@
     "<%= @search %>"の検索結果
     - <%= @posts.count %>件
   </div>
-  <div class="row">
-    <div class="col-9 d-flex flex-wrap justify-content-center mt-5">
-      <% @posts.each do |post| %>
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-9 col-md-7 d-flex flex-wrap justify-content-center mt-5">
+      <% @post_pages.each do |post| %>
         <div class="d-flex flex-column mx-3">
             <%= link_to post_path(post.id) do %>
               <%= attachment_image_tag post, :image, :fill, 150, 150 %><br>
