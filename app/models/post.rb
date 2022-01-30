@@ -5,6 +5,9 @@ class Post < ApplicationRecord
   has_many :tags, through: :tag_maps
   has_many :favorites, dependent: :destroy
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   # いいね機能
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
@@ -36,8 +39,6 @@ class Post < ApplicationRecord
   end
 
   attachment :image
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
 
   validates :title, presence: true
   validates :image, presence: true
